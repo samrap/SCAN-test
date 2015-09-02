@@ -1,0 +1,907 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300,600,600italic,700);
+
+/*
+ |-----------------------------------------------------------------------------
+ | FONT SETTINGS
+ |-----------------------------------------------------------------------------
+ */
+
+$family: 'Open Sans', 'Arial', 'sans-serif';
+$base-font-size: 16px;
+$primary-font-color: #5B5B5B;
+
+/*
+ |-----------------------------------------------------------------------------
+ | COLOR SETTINGS
+ |-----------------------------------------------------------------------------
+ */
+
+$dark-gray: #5B5B5B;
+$medium-gray: #777;
+$light-gray: #BBB;
+
+$dark-blue: #003366;
+$dark-blue-secondary: #005B89;
+$light-blue: #00CCCC;
+$light-blue-secondary: #C1E0EF;
+$light-blue-depressed: #009999;
+
+$orange: #FF6633;
+$orange-secondary: #FF9966;
+
+/*
+ |-----------------------------------------------------------------------------
+ | GRID SETTINGS
+ |-----------------------------------------------------------------------------
+ */
+
+$page-width-percent: 82%;
+$page-width-pixels: 1170px;
+
+$column-width-percent: 4.69%;
+$column-width-pixels: 76.5px;
+
+$gutter-width-pixels: 30px;
+
+
+/*
+ |-----------------------------------------------------------------------------
+ | IMAGE RESOURCES
+ |-----------------------------------------------------------------------------
+ */
+
+$hero_bg: '../img/hero_bg.jpg';
+$doctor_bg: '../img/doctor-image.jpg';
+$find_doctor_bg: '../img/find_doctor_bg.jpg';
+
+/*
+ |-----------------------------------------------------------------------------
+ | MIXINS
+ |-----------------------------------------------------------------------------
+ */
+
+// For debugging containers
+@mixin dbb($color) {
+    border: 1px solid $color;
+}
+
+// Grid-specific width
+@mixin gridWidth($columns, $gutters) {
+    width: ($column-width-pixels * $columns) + ($gutter-width-pixels * $gutters);
+}
+
+// Same as gridWidth but fluid
+@mixin gridMaxWidth($columns, $gutters) {
+    max-width: ($column-width-pixels * $columns) + ($gutter-width-pixels * $gutters);
+}
+
+// Transition with vendor prefix
+@mixin makeTransition() {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+
+/* CSS START -----------------------------------------------------------------*/
+
+
+/*
+ |-----------------------------------------------------------------------------
+ | BASIC HTML STYLES
+ |-----------------------------------------------------------------------------
+ */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: $family;
+    font-size: $base-font-size;
+    color: $primary-font-color;
+}
+
+::-moz-selection {
+    color: #FFF;
+    background: #999;
+}
+::selection {
+    color: #FFF;
+    background: #999;
+}
+
+h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 45px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 300 !important;
+    line-height: 28px;
+}
+
+p.small {
+    line-height: 24px;
+}
+
+a {
+    color: $orange;
+    text-decoration: none;
+    @include makeTransition();
+}
+
+a.tel {
+    color: #FFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 28px;
+    }
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | FORMATTING CLASSES
+ |-----------------------------------------------------------------------------
+ */
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.center {
+    margin: 0 auto;
+    display: block;
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | HEADERS
+ |-----------------------------------------------------------------------------
+ */
+
+header.main-header {
+    margin: 0 auto;
+    width: 100%;
+    height: 51vw;
+    padding-top: 15px;
+    background: #999 url($hero_bg) no-repeat;
+    background-size: 100%;
+    overflow: hidden;
+
+    .banner {
+        margin: 0 auto;
+        width: 100%;
+        height: 85px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        color: $primary-font-color;
+        background: #FFF;
+
+        .container {
+            width: $page-width-percent;
+            height: 45px;
+            line-height: 45px;
+        }
+    }
+
+    .banner-clear {
+        color: #FFF;
+        background: none;
+    }
+
+    .header-body {
+        margin: 0 auto;
+        width: 47.43%;
+        max-width: 555px;
+        height: auto;
+        padding-top: 55px;
+        color: #FFF;
+
+        .testimonial {
+            width: 100%;
+            height: auto;
+            text-align: center;
+
+            p.small {
+                margin-bottom: 35px;
+            }
+        }
+
+        .actions {
+            width: 100%;
+            height: auto;
+            padding: 75px 15px 0 15px;
+
+
+            .btn.left {
+                float: left;
+            }
+            .btn.right {
+                float: right;
+            }
+        }
+    }
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | FOOTERS
+ |-----------------------------------------------------------------------------
+ */
+
+footer.main-footer {
+    .banner {
+        height: auto;
+        padding: 30px 0 30px 0;
+        font-size: 14px;
+        color: $dark-blue;
+        background: $light-blue-secondary;
+
+        a {
+            color: $dark-blue;
+        }
+
+        i {
+            margin-left: 5px;
+            font-size: 18px;
+        }
+    }
+
+    .body {
+        height: auto;
+        padding: 30px 0 50px 0;
+        background: $dark-blue;
+
+        .col-md-4 {
+           .border-top {
+                border-top: 2px solid #FFF;
+            }
+        }
+
+        p {
+            padding-top: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            color: #FFF;
+        }
+    }
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | CONTAINERS
+ |-----------------------------------------------------------------------------
+ */
+
+@mixin col-eq-height() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+div.container {
+    width: $page-width-percent;
+    max-width: $page-width-pixels;
+}
+
+div.basicbox-container {
+    padding: 45px 0 30px 0;
+
+    .basicbox {
+        .content {
+            width: 100%;
+            height: 410px;
+            padding: 20px 30px;
+
+            li {
+                line-height: 30px;
+
+                .value {
+                    margin-right: 5px;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: $dark-blue;
+                }
+            }
+        }
+    }
+}
+
+div.testimonial-container {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 555px;
+    padding: 45px 0 30px 0;
+
+    .media {
+        display: none;
+    }
+    .media.first {
+        display: block;
+    }
+
+    .testimonial-buttons {
+        text-align: center;
+
+        .inner {
+            display: inline-block;
+            padding: 6px;
+            line-height: 30px;
+
+            .dot-link {
+                margin: 0 8px;
+                float: left;
+                width: 8px;
+                height: 8px;
+                border: 1px solid $light-gray;
+                border-radius: 100%;
+                cursor: pointer;
+            }
+            .dot-link.active {
+                background: $light-gray;
+            }
+        }
+    }
+}
+
+div.help-container {
+    padding: 45px 0 30px 0;
+    text-align: center;
+
+    .heading-underline {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    h2 {
+        color: $orange;
+    }
+
+    .help-image {
+        margin: 0 auto;
+        @include gridMaxWidth(3, 4);
+    }
+
+    .help-description {
+        margin: 0 auto;
+        @include gridMaxWidth(2, 3);
+        padding: 20px 0 20px;
+
+        p {
+            line-height: 22px;
+        }
+    }
+}
+
+div.testimonial-grid {
+    color: $dark-blue;
+
+    p {
+        font-weight: 400 !important;
+    }
+
+    span.quote {
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+
+div.doctor-container {
+    width: 100%;
+    padding: 25px 0 15px 0;
+    color: #FFF;
+
+    .row {
+        .doctor-image {
+            height: 650px;
+            background: url($doctor_bg) no-repeat;
+            background-size: 100%;
+        }
+        .doctor-content {
+            height: 650px;
+            padding: 110px;
+            background: url($find_doctor_bg) no-repeat;
+            background-size: 100%;
+
+            p {
+                @include gridMaxWidth(4, 3);
+            }
+
+            .btn-padding {
+                padding: 10px 0 35px 0;
+            }
+        }
+    }
+}
+
+div.contact-us-container {
+    @include gridMaxWidth(8, 8);
+    padding: 45px 0 60px 0;
+    text-align: center;
+
+    .callout {
+        margin: 0 auto;
+        max-width: 555px;
+        padding-bottom: 75px;
+    }
+
+    h1,
+    h2 {
+        color: $light-blue;
+    }
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | FORMS
+ |-----------------------------------------------------------------------------
+ */
+
+form.styled-form {
+    .form-header {
+        margin: 0 auto;
+        position: relative;
+        @include gridMaxWidth(4, 4);
+        text-align: center;
+    }
+
+    .form-control {
+        width: 210px;
+    }
+
+    input {
+        margin: 0 5px;
+        height: 45px;
+        padding: 0 15px;
+        font-size: 12px;
+        line-height: 45px;
+        border: 1px solid $light-gray;
+        border-radius: 0;
+    }
+}
+
+form#benefitsCalcForm {
+    padding: 15px 0 15px 0;
+
+    .form-control {
+        width: 280px;
+    }
+
+    input {
+        border: 1px solid $dark-blue;
+    }
+
+    button {
+        margin-left: 10px;
+    }
+}
+
+form#contactForm {
+    .form-header {
+        top: -15px;
+
+        h2 {
+            margin: 0 auto;
+            width: 250px;
+            background: #FFF;
+        }
+
+        a.tel {
+            color: $light-blue;
+        }
+    }
+
+    input:focus {
+        outline: none;
+        border: 1px solid $light-blue;
+    }
+
+    button {
+        margin: 25px auto;
+    }
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | BUTTONS
+ |-----------------------------------------------------------------------------
+ */
+
+$button-height: 45px;
+
+.btn {
+    padding: 0;
+    width: 225px;
+    height: $button-height;
+    line-height: $button-height;
+    border-radius: $button-height / 2;
+    @include makeTransition();
+}
+
+.btn.btn-square {
+    width: $button-height;
+    height: $button-height;
+    border-radius: 0;
+}
+
+.btn.outline {
+    line-height: $button-height - 3; /* Line height is affected by borders */
+    border: 2px solid;
+}
+
+.btn.outline.white {
+    color: #FFF;
+    background: none;
+    border-color: #FFF;
+}
+
+.btn.outline.white:hover {
+    color: $light-blue;
+    border-color: $light-blue;
+}
+
+.btn.outline.light-blue {
+    color: $light-blue;
+    background: none;
+    border-color: $light-blue;
+}
+
+.btn.outline.light-blue:hover {
+    color: $light-blue-depressed;
+    border-color: $light-blue-depressed;
+}
+
+.btn.outline.orange {
+    color: $orange;
+    background: none;
+    border-color: $orange;
+}
+
+.btn.outline.orange:hover {
+    color: $orange-secondary;
+    border-color: $orange-secondary;
+}
+
+.btn.solid.light-blue {
+    color: #FFF;
+    background: $light-blue;
+}
+
+.btn.solid.light-blue:hover {
+    background: $light-blue-depressed;
+}
+
+.btn.solid.dark-blue {
+    color: #FFF;
+    background: $dark-blue;
+}
+
+.btn.solid.dark-blue:hover {
+    background: $dark-blue-secondary;
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | OTHER THINGS (FOR LACK OF A BETTER NAME)
+ |-----------------------------------------------------------------------------
+ */
+
+.heading-underline {
+    margin: 20px 0 20px 0;
+    width: 100px;
+    height: 1px;
+}
+
+.heading-underline.blue {
+    background: $dark-blue;
+}
+
+.heading-underline.orange {
+    background: $orange;
+}
+
+.with-border-md,
+.with-border-xs {
+    border: 1px solid $light-gray;
+}
+
+/*
+ |-----------------------------------------------------------------------------
+ | MEDIA QUERIES
+ |-----------------------------------------------------------------------------
+ */
+
+@media screen and (max-width: 1330px) {
+    div.doctor-container {
+        .row {
+            .doctor-content {
+                padding: 60px;
+
+                .btn-padding {
+                    padding: 5px 0 5px 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1160px) {
+    header.main-header {
+        .header-body {
+            width: 55%;
+            max-width: 55%;
+
+            .testimonial {
+                p.small {
+                    margin-bottom: 20px;
+                }
+            }
+
+            .actions {
+                padding: 25px 45px 0 45px;
+            }
+        }
+    }
+
+    div.basicbox-container {
+        padding: 15px 0 0 0;
+
+        .basicbox {
+            margin-bottom: 15px;
+            float: none;
+            clear: both;
+            width: 100%;
+
+            .content {
+                padding: 20px 0;
+                height: auto;
+                text-align: center;
+
+                .heading-underline {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+
+    div.doctor-container {
+        .row {
+            .col-md-6 {
+                float: none;
+                clear: both;
+                width: 100%;
+            }
+
+            .doctor-image {
+                display: none;
+            }
+
+            .doctor-content {
+                height: auto;
+                text-align: center;
+
+                .heading-underline {
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+
+                p {
+                    margin: 0 auto;
+                }
+
+                .btn-padding {
+                    padding: 10px 0 35px 0;
+                }
+
+                .media {
+                    margin: 0 auto;
+                    @include gridMaxWidth(6, 5);
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .with-border-md {
+        border: none;
+    }
+}
+
+@media screen and (max-width: 1045px) {
+    header.main-header {
+        padding-top: 0;
+
+        .header-body {
+            width: 65%;
+            max-width: 65%;
+            padding-top: 0;
+
+            .testimonial {
+                p.small {
+                    margin-bottom: 0px;
+                }
+            }
+
+            .actions {
+                padding: 25px 10% 0 10%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    div.testimonial-grid {
+        .media {
+            margin-top: 10px;
+        }
+    }
+
+    footer.main-footer {
+        .col-md-4 {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header.main-header {
+        height: auto;
+        background-size: auto;
+        background-position: center center;
+
+        .header-body {
+            .actions {
+                padding: 10px 0 15px 0;
+
+                .btn.left,
+                .btn.right {
+                    margin: 10px auto;
+                    float: none;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 830px) {
+    form#contactForm {
+        .form-control {
+            width: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header.main-header {
+        .banner {
+            .banner-phone {
+                display: none;
+            }
+
+            #bannerLogo {
+                width: 100%;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .header-body {
+            width: $page-width-percent;
+            max-width: $page-width-percent;
+        }
+    }
+
+    form.styled-form,
+    form#benefitsCalcForm {
+        input {
+            margin: 0 auto;
+            width: 75% !important;
+        }
+        button.btn.btn-square {
+            width: 75%;
+        }
+    }
+
+    form#benefitsCalcForm {
+        button {
+            margin-left: 0;
+        }
+    }
+
+    .media-left {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .media-body {
+        margin-top: 10px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    div.doctor-container {
+        .row {
+            .doctor-content {
+                padding: 45px;
+                height: auto;
+                background-size: auto;
+            }
+        }
+    }
+
+    .with-border-xs {
+        border: none !important;
+    }
+}
+
+@media screena and (max-width: 500px) {
+    footer.main-footer {
+        .banner {
+            span {
+                float: none !important;
+                clear: both !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    header.main-header {
+        .testimonial {
+            .br-hide {
+                display: none;
+            }
+        }
+    }
+
+    form.styled-form,
+    form#benefitsCalcForm {
+        input,
+        button {
+            width: 100% !important;
+        }
+    }
+}

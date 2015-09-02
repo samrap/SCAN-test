@@ -1,0 +1,20 @@
+{
+    "name": "samrap/SCAN-test",
+    "description": "SCAN font end test",
+    "license": "MIT",
+    "keywords": ["Sam Rapaport"],
+    "authors": [
+        {
+            "name": "Sam Rapaport",
+            "email": "rapaport.sam7@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SCAN\\Src\\": "src"
+        }
+    }
+}
