@@ -2,7 +2,7 @@
 _______________
 Hey everyone! I had a fun time with this one, first time working with SASS and to my surprise I actually really liked it. First time working with retina images, although I have used `srcset` before just not for retina images.
 
-Anyway, here are all the files for the whole project. All public resources (HTML, CSS, JS, Images) are in the **public/** directory. Everything else is in the project's root directory. You'll notice the Composer configuration file; I used a Composer package for reading from an Excel sheet and it just made most sense to include via Composer to make use of the autoloader. To make it easy for you guys, I went ahead and put the site on my home server with required authentication, so you can log in and view it and not have to install Composer and deal with all that. You can get to it at samrapdev.com/SCAN-test and enter the key "*gigasavvy*" to get in.
+Anyway, here are all the files for the whole project. All public resources (HTML, CSS, JS, Images) are in the **public/** directory. Everything else is in the project's root directory. You'll notice the Composer configuration file; I used a Composer package for reading from an Excel sheet and it just made most sense to include via Composer to make use of the autoloader. To make it easy for you guys, I went ahead and put the site on my home server with required authentication, so you can log in and view it and not have to install Composer and deal with all that. You can get to it at samrapdev.com/SCAN-test and enter the key: **gigasavvy** and the password: **gigasavvy** to get in.
 
 # Notes
 ____________
